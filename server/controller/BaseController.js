@@ -33,22 +33,6 @@ class BaseController {
       throw new Error();
     }
   };
-
-  /** validate request parameter sent */
-  static validateRequest = async (query) => {
-    let response;
-    if (
-      query.hasOwnProperty("base") &&
-      query.hasOwnProperty("currency") &&
-      Object.keys(query).length == 2
-    ) {
-      response = true;
-    } else {
-      response = false;
-    }
-
-    return response;
-  };
 }
 
 export default BaseController;

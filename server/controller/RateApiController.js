@@ -33,8 +33,25 @@ class RateApiController extends BaseController {
         RateApiController._responseSuccess(res, results, 200);
       } catch (error) {}
     } else {
-      res.json({ msg: "sorry, query string must be passed" });
+      error_msg = { error_msg: "sorry, query string must be passed" };
+      RateApiController._responseError(res, error_msg, 400);
     }
+  };
+
+  /** validate request parameter sent */
+  static validateRequest = async (query) => {
+    let response;
+    if (
+      query.hasOwnProperty("base") &&
+      query.hasOwnProperty("currency") &&
+      Object.keys(query).length == 2
+    ) {
+      response = true;
+    } else {
+      response = false;
+    }
+
+    return response;
   };
 }
 export default RateApiController;
