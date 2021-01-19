@@ -33,7 +33,7 @@ class RateApiController extends BaseController {
         RateApiController._responseSuccess(res, results, 200);
       } catch (error) {}
     } else {
-      error_msg = { error_msg: "sorry, query string must be passed" };
+      const error_msg = { message: "sorry, query string must be passed" };
       RateApiController._responseError(res, error_msg, 400);
     }
   };

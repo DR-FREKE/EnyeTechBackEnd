@@ -13,8 +13,8 @@ class BaseController {
   }
 
   /** handle response errors */
-  static _responseError = (res, code) => {
-    return res.status(code).json({ error_msg: "error" });
+  static _responseError = (res, error_msg, code) => {
+    res.status(code).json({ error_msg });
   };
 
   /** handle successful response */
